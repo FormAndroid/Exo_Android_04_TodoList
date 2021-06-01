@@ -1,0 +1,20 @@
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Note : On donne en parametre le context de l'activité actuelle
+        //        ce qui lui fourni egalement le theme à utiliser.
+
+        builder.setTitle("Ceci est une demo !")
+                .setMessage("Hello \nWorld")
+                .setPositiveButton("Positif", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setNegativeButton("Negatif", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                })
+                .setCancelable(false)   // On peut plus coupé l'alert en cliquant a coté
+                .show();

@@ -10,4 +10,7 @@
     <string name="label_category">Categorie</string>
     <string name="btn_cancel">Annuler</string>
     <string name="btn_valide_task">Ajouter la tache</string>
+    <string name="priority_high">Haute</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_low">Basse</string>
 </resources>

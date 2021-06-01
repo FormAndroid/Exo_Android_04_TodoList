@@ -11,4 +11,11 @@
     <string name="btn_add_category" translatable="false">+</string>
     <string name="btn_cancel">Cancel</string>
     <string name="btn_valide_task">Add new task</string>
+    <string name="priority_high">High</string>
+    <string name="priority_normal">Normal</string>
+    <string name="priority_low">Low</string>
+    <string name="label_name_category">Name of category</string>
+    <string name="dialog_btn_cancel">Cancel</string>
+    <string name="dialog_btn_add">Add</string>
+    <string name="dialog_titlte_add_category">Add a new category</string>
 </resources>
