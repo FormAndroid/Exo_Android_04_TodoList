@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name" translatable="false">Exo_04_SQLite</string>
+    <string name="title_main">Todo App</string>
+    <string name="btn_add_task">Add task</string>
+    <string name="btn_clear_all">Clear all</string>
+    <string name="subtitle_task_list">Task list</string>
+    <string name="subtitle_add_task">Add a new task</string>
+    <string name="label_name">Name</string>
+    <string name="label_priority">Priority</string>
+    <string name="label_category">Category</string>
+    <string name="btn_add_category" translatable="false">+</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_valide_task">Add new task</string>
+</resources>

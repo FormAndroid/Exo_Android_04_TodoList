@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_main">Todo App</string>
+    <string name="btn_add_task">Ajouter une tache</string>
+    <string name="btn_clear_all">Effacer les taches</string>
+    <string name="subtitle_task_list">Liste des taches</string>
+    <string name="subtitle_add_task">Ajouter une nouvelle tache</string>
+    <string name="label_name">Nom</string>
+    <string name="label_priority">Priorité</string>
+    <string name="label_category">Categorie</string>
+    <string name="btn_cancel">Annuler</string>
+    <string name="btn_valide_task">Ajouter la tache</string>
+</resources>

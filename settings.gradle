@@ -1,0 +1,2 @@
+rootProject.name = "Exo_04_SQLite"
+include ':app'
