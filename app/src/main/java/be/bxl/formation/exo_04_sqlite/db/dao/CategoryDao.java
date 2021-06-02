@@ -12,33 +12,10 @@ import be.bxl.formation.exo_04_sqlite.db.DbHelper;
 import be.bxl.formation.exo_04_sqlite.db.DbInfo;
 import be.bxl.formation.exo_04_sqlite.models.Category;
 
-public class CategoryDao {
-    private Context context;
-    private DbHelper dbHelper;
-    private SQLiteDatabase db;
+public class CategoryDao extends DaoBase<Category> {
 
     public CategoryDao(Context context) {
-        this.context = context;
-    }
-
-    // Gestion de la connexion à la DB via DbHelper
-    public CategoryDao openWritable() {
-        dbHelper = new DbHelper(context);
-        db = dbHelper.getWritableDatabase();
-
-        return this;
-    }
-
-    public CategoryDao openReadable() {
-        dbHelper = new DbHelper(context);
-        db = dbHelper.getReadableDatabase();
-
-        return this;
-    }
-
-    public void close() {
-        db.close();
-        dbHelper.close();
+        super(context);
     }
 
 
