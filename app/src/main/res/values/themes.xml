@@ -13,4 +13,17 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <!-- Theme custom pour le DatePicker -->
+    <style name="CustomDatePicker" parent="android:Widget.Material.Light.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+    </style>
+
+    <!-- Theme custom pour la Dialog qui contient le DatePicker -->
+    <style name="CustomDatePickerDialog" parent="android:Theme.Material.Dialog">
+        <item name="android:datePickerStyle">@style/CustomDatePicker</item>
+    </style>
+
 </resources>

@@ -14,13 +14,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -80,6 +78,7 @@ public class AddTodoActivity extends AppCompatActivity {
         imgOpenCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Calendar calendar = Calendar.getInstance();
                 int initialDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
                 int initialMonth = calendar.get(Calendar.MONTH);
@@ -87,6 +86,7 @@ public class AddTodoActivity extends AppCompatActivity {
 
                 DatePickerDialog picker = new DatePickerDialog(
                         AddTodoActivity.this,
+                        R.style.CustomDatePickerDialog,
                         new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
@@ -99,6 +99,15 @@ public class AddTodoActivity extends AppCompatActivity {
                             }
                         },
                         initialYear, initialMonth, initialDayOfMonth);
+
+                picker.setButton(DatePickerDialog.BUTTON_NEGATIVE, "None", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        limitDateSelected = null;
+                        etLimitDate.setText("");
+                    }
+                });
+
                 picker.show();
             }
         });
