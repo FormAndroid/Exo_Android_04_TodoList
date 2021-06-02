@@ -19,6 +19,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // Création des bases de donnes
         db.execSQL(DbInfo.CategoryTable.REQUEST_CREATE);
+        db.execSQL(DbInfo.TodoTaskTable.REQUEST_CREATE);
 
         // Ajout des données initial
         db.execSQL(DbInfo.CategoryTable.REQUEST_ADD_INITIAL_DATA, new String[] {context.getString(R.string.initial_category_general)});
@@ -30,6 +31,7 @@ public class DbHelper extends SQLiteOpenHelper {
         // Migration d'une version d'une base de donnée vers une autre
         // - Suppression de l'ancienne version
         db.execSQL(DbInfo.CategoryTable.REQUEST_DROP);
+        db.execSQL(DbInfo.TodoTaskTable.REQUEST_DROP);
         // - Appel de la méthode de création
         onCreate(db);
 

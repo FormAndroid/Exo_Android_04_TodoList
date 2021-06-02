@@ -33,6 +33,22 @@ public enum PriorityEnum {
     }
 
 
+    public static PriorityEnum fromLevel(int level) {
+        PriorityEnum priority = null;
+
+        for(PriorityEnum p : PriorityEnum.values()) {
+            if(p.getLevel() == level) {
+                priority = p;
+            }
+        }
+
+        if(priority == null) {
+            throw new RuntimeException("Level not found");
+        }
+
+        return priority;
+    }
+
     public static PriorityEnum parse(@NonNull Context context, @NonNull String name) {
         boolean found = false;
         PriorityEnum[] values = PriorityEnum.values();
