@@ -70,7 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingHorizontal="@dimen/padding_form"
-        android:layout_marginBottom="20dp">
+        android:layout_marginBottom="@dimen/margin_form">
 
         <TextView
             android:layout_width="@dimen/width_label"
@@ -94,6 +94,38 @@
             android:text="@string/btn_add_category"
             android:background="@drawable/round_button"
             android:gravity="center"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/padding_form"
+        android:layout_marginBottom="@dimen/margin_form">
+
+        <TextView
+            android:layout_width="@dimen/width_label"
+            android:layout_marginEnd="10dp"
+            android:layout_height="wrap_content"
+            android:text="@string/label_limit_date"
+            />
+
+        <EditText
+            android:id="@+id/et_add_task_limit_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="date"
+            />
+
+        <ImageView
+            android:id="@+id/img_add_task_open_calendar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/icon_calendar"
+            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="5dp"
             />
 
     </LinearLayout>

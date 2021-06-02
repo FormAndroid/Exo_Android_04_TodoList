@@ -3,16 +3,26 @@ package be.bxl.formation.exo_04_sqlite;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.Toast;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 import be.bxl.formation.exo_04_sqlite.enums.PriorityEnum;
 import be.bxl.formation.exo_04_sqlite.models.Category;
@@ -21,8 +31,10 @@ public class AddTodoActivity extends AppCompatActivity {
 
     private List<Category> categories;
     private ArrayAdapter<Category> categoryAdapter;
+    private LocalDate limitDateSelected = null;
 
-    EditText etName;
+    EditText etName, etLimitDate;
+    ImageView imgOpenCalendar;
     Spinner spPriority, spCategory;
     Button btnValid, btnCancel, btnAddCategory;
 
@@ -32,6 +44,8 @@ public class AddTodoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_todo);
 
         etName = findViewById(R.id.et_add_task_name);
+        etLimitDate = findViewById(R.id.et_add_task_limit_date);
+        imgOpenCalendar = findViewById(R.id.img_add_task_open_calendar);
         spPriority = findViewById(R.id.sp_add_task_priority);
         spCategory = findViewById(R.id.sp_add_task_category);
         btnValid = findViewById(R.id.btn_add_task_valid);
@@ -57,6 +71,37 @@ public class AddTodoActivity extends AppCompatActivity {
             }
         });
 
+
+        // DatePicker de la date limite
+        //  - Déactivation de la saisie via le clavier
+        etLimitDate.setInputType(InputType.TYPE_NULL);
+
+        // - Ouverture d'un dialog pour la date (Alternative => le déclancher via l'editText)
+        imgOpenCalendar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar calendar = Calendar.getInstance();
+                int initialDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                int initialMonth = calendar.get(Calendar.MONTH);
+                int initialYear = calendar.get(Calendar.YEAR);
+
+                DatePickerDialog picker = new DatePickerDialog(
+                        AddTodoActivity.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                                limitDateSelected = LocalDate.of(year, month + 1, dayOfMonth);
+
+                                Locale locale = getApplicationContext().getResources().getConfiguration().getLocales().get(0);
+                                String date = limitDateSelected.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", locale));
+                                etLimitDate.setText(date);
+                            }
+                        },
+                        initialYear, initialMonth, initialDayOfMonth);
+                picker.show();
+            }
+        });
 
 
         // Spinner des priorités

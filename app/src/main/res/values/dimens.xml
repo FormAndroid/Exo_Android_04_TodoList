@@ -4,5 +4,5 @@
     <dimen name="default_margin">20dp</dimen>
     <dimen name="padding_form">40dp</dimen>
     <dimen name="margin_form">10dp</dimen>
-    <dimen name="width_label">70dp</dimen>
+    <dimen name="width_label">100dp</dimen>
 </resources>

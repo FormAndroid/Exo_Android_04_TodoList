@@ -18,4 +18,5 @@
     <string name="dialog_btn_cancel">Cancel</string>
     <string name="dialog_btn_add">Add</string>
     <string name="dialog_titlte_add_category">Add a new category</string>
+    <string name="label_limit_date">Limit date</string>
 </resources>
