@@ -23,8 +23,10 @@ import java.util.List;
 import java.util.Locale;
 
 import be.bxl.formation.exo_04_sqlite.db.dao.CategoryDao;
+import be.bxl.formation.exo_04_sqlite.db.dao.TodoTaskDao;
 import be.bxl.formation.exo_04_sqlite.enums.PriorityEnum;
 import be.bxl.formation.exo_04_sqlite.models.Category;
+import be.bxl.formation.exo_04_sqlite.models.TodoTask;
 
 public class AddTodoActivity extends AppCompatActivity {
 
@@ -150,7 +152,21 @@ public class AddTodoActivity extends AppCompatActivity {
     }
 
     private void addNewTask() {
-        throw  new RuntimeException();
+        String name = etName.getText().toString();
+        String priorityValue = spPriority.getSelectedItem().toString();
+        PriorityEnum priority = PriorityEnum.parse(getApplicationContext(), priorityValue);
+        LocalDate creationDate = LocalDate.now();
+
+        // Creation a new task
+        TodoTask task = new TodoTask(name, priority, creationDate, limitDateSelected);
+
+        // Save in DB
+        TodoTaskDao taskDao = new TodoTaskDao(getApplicationContext());
+        taskDao.openWritable();
+        taskDao.insert(task);
+        taskDao.close();
+
+        closeActivity();
     }
 
     private void openDialogCategory() {
@@ -197,7 +213,6 @@ public class AddTodoActivity extends AppCompatActivity {
         categories.add(cat);
         categoryAdapter.notifyDataSetChanged();
     }
-
 
     private void closeActivity() {
         finish();
