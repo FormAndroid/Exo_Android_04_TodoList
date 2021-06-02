@@ -1,7 +1,9 @@
 package be.bxl.formation.exo_04_sqlite;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -37,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         btnClear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                clearAllTask();
+                openDialogClearTask();
             }
         });
     }
@@ -45,6 +47,25 @@ public class MainActivity extends AppCompatActivity {
     private void openAddTodoActivity() {
         Intent openAddScreen = new Intent(getApplicationContext(), AddTodoActivity.class);
         startActivity(openAddScreen);
+    }
+
+    private void openDialogClearTask() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        builder.setTitle("Are you sure ?")
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        clearAllTask();
+                    }
+                })
+                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        // On ne fait rien ;)
+                    }
+                })
+                .show();
     }
 
     private void clearAllTask() {
