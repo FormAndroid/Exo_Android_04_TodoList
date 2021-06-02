@@ -86,7 +86,27 @@ public class TodoTaskDao extends DaoBase<TodoTask> {
         if(cursor.getCount() == 0) { return results; }
 
         cursor.moveToFirst();
-        while(! cursor.isAfterLast()) {  // On continue tant qu'on a pas fait toute les resultats
+        while(! cursor.isAfterLast()) {
+            TodoTask task = cursorToData(cursor);
+            results.add(task);
+
+            cursor.moveToNext();
+        }
+        cursor.close();
+
+        return results;
+    }
+
+    public List<TodoTask> getUnfinishedTask() {
+        List<TodoTask> results = new ArrayList<>();
+
+        String whereClause = DbInfo.TodoTaskTable.COLUMN_FINISH_DATE + " IS NULL";
+        Cursor cursor = db.query(DbInfo.TodoTaskTable.TABLE_NAME, null, whereClause, null, null, null, null);
+
+        if(cursor.getCount() == 0) { return results; }
+
+        cursor.moveToFirst();
+        while(! cursor.isAfterLast()) {
             TodoTask task = cursorToData(cursor);
             results.add(task);
 
