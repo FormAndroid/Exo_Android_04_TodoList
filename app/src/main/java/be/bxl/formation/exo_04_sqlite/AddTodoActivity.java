@@ -22,6 +22,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import be.bxl.formation.exo_04_sqlite.db.dao.CategoryDao;
 import be.bxl.formation.exo_04_sqlite.enums.PriorityEnum;
 import be.bxl.formation.exo_04_sqlite.models.Category;
 
@@ -130,12 +131,13 @@ public class AddTodoActivity extends AppCompatActivity {
 
 
         // Spinner des catégories
-        //FIXME Fausse liste de categorie => A remplacer par l'acces a la DB
-        categories = new ArrayList<>();
-        categories.add(new Category(1, "Riri"));
-        categories.add(new Category(2, "Fifi"));
-        categories.add(new Category(3, "Zaza"));
+        //  - Récuperation des categories via la DB
+        CategoryDao categoryDao = new CategoryDao(this);
+        categoryDao.openReadable();
+        categories = categoryDao.getAll();
+        categoryDao.close();
 
+        //  - Configuration du spinner
         categoryAdapter = new ArrayAdapter<>(
                 getApplicationContext(),
                 android.R.layout.simple_spinner_item,
@@ -179,10 +181,20 @@ public class AddTodoActivity extends AppCompatActivity {
     }
 
     private void addNewCategory(String name) {
-        //FIXME Replace by add in database (Solution temporaire : Recupere l'id max et lui ajoute 1)
-        long id = categories.stream().map(c -> c.getCategoryId()).max(Long::compareTo).orElse(0l) + 1;
+        // - Création de l'objet Categorie
+        Category cat = new Category(name);
 
-        categories.add(new Category(id, name));
+        // - Sauvegarde en base de donnée
+        CategoryDao categoryDao = new CategoryDao(this);
+        categoryDao.openWritable();
+        long id = categoryDao.insert(cat);
+        categoryDao.close();
+
+        // - Mise a jours de l'objet créer avec l'id de la base de donnée
+        cat.setCategoryId(id);
+
+        // - On ajoute la categorie a la liste (Avec la notification du spinner)
+        categories.add(cat);
         categoryAdapter.notifyDataSetChanged();
     }
 

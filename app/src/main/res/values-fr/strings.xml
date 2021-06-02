@@ -13,4 +13,11 @@
     <string name="priority_high">Haute</string>
     <string name="priority_normal">Normal</string>
     <string name="priority_low">Basse</string>
+    <string name="label_name_category">Nom de la category</string>
+    <string name="dialog_btn_cancel">Annuler</string>
+    <string name="dialog_btn_add">Ajouter</string>
+    <string name="dialog_titlte_add_category">Ajouter une nouvelle categorie</string>
+    <string name="label_limit_date">Date limite</string>
+    <string name="initial_category_general">Général</string>
+    <string name="initial_category_pro">"Professionnel "</string>
 </resources>

@@ -19,4 +19,6 @@
     <string name="dialog_btn_add">Add</string>
     <string name="dialog_titlte_add_category">Add a new category</string>
     <string name="label_limit_date">Limit date</string>
+    <string name="initial_category_general">General</string>
+    <string name="initial_category_pro">Pro</string>
 </resources>
