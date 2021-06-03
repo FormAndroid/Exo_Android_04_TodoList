@@ -82,10 +82,18 @@ public class AddTodoActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Calendar calendar = Calendar.getInstance();
-                int initialDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
-                int initialMonth = calendar.get(Calendar.MONTH);
-                int initialYear = calendar.get(Calendar.YEAR);
+                int initialDayOfMonth, initialMonth, initialYear;
+                if(limitDateSelected != null) {
+                    initialDayOfMonth = limitDateSelected.getDayOfMonth();
+                    initialMonth = limitDateSelected.getMonthValue() - 1;
+                    initialYear = limitDateSelected.getYear();
+                }
+                else {
+                    Calendar calendar = Calendar.getInstance();
+                    initialDayOfMonth = calendar.get(Calendar.DAY_OF_MONTH);
+                    initialMonth = calendar.get(Calendar.MONTH);
+                    initialYear = calendar.get(Calendar.YEAR);
+                }
 
                 DatePickerDialog picker = new DatePickerDialog(
                         AddTodoActivity.this,
