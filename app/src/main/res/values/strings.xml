@@ -26,4 +26,5 @@
     <string name="create_date_task">Create at %s</string>
     <string name="finish_date_task">Finish at %s</string>
     <string name="limit_date_task">Limit date at %s</string>
+    <string name="date_pattern">MMMM dd. yyyy</string>
 </resources>

@@ -19,6 +19,7 @@ import be.bxl.formation.exo_04_sqlite.models.TodoTask;
 
 public class TodoTaskAdapter extends RecyclerView.Adapter<TodoTaskAdapter.ViewHolder> {
 
+    @FunctionalInterface
     public interface EventFinishTask {
         void onFinish(TodoTask task);
     }
@@ -90,7 +91,7 @@ public class TodoTaskAdapter extends RecyclerView.Adapter<TodoTaskAdapter.ViewHo
         holder.getTvPriority().setText(priority);
 
         Locale locale = context.getResources().getConfiguration().getLocales().get(0);
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM yyyy", locale);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(context.getString(R.string.date_pattern), locale);
 
         String dateMessage;
         String dateFormatted;

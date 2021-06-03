@@ -105,7 +105,8 @@ public class AddTodoActivity extends AppCompatActivity {
                                 limitDateSelected = LocalDate.of(year, month + 1, dayOfMonth);
 
                                 Locale locale = getApplicationContext().getResources().getConfiguration().getLocales().get(0);
-                                String date = limitDateSelected.format(DateTimeFormatter.ofPattern("dd MMMM yyyy", locale));
+                                String pattern = getApplicationContext().getString(R.string.date_pattern);
+                                String date = limitDateSelected.format(DateTimeFormatter.ofPattern(pattern, locale));
                                 etLimitDate.setText(date);
                             }
                         },

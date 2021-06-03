@@ -20,4 +20,10 @@
     <string name="label_limit_date">Date limite</string>
     <string name="initial_category_general">Général</string>
     <string name="initial_category_pro">"Professionnel "</string>
+    <string name="btn_finish_task">Terminé</string>
+    <string name="task_priority">Priorité</string>
+    <string name="create_date_task">Créer le %s</string>
+    <string name="finish_date_task">Terminé le %s</string>
+    <string name="limit_date_task">Date limite : %s</string>
+    <string name="date_pattern">dd MMMM yyyy</string>
 </resources>
