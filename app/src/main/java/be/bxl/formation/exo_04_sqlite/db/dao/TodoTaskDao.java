@@ -140,4 +140,8 @@ public class TodoTaskDao extends DaoBase<TodoTask> {
         int nbRow = db.delete(DbInfo.TodoTaskTable.TABLE_NAME, whereClause, whereArg);
         return nbRow == 1;
     }
+
+    public void deleteAll() {
+        db.delete(DbInfo.TodoTaskTable.TABLE_NAME, null, null);
+    }
 }

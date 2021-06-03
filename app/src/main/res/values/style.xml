@@ -16,6 +16,14 @@
         <item name="android:paddingHorizontal">25sp</item>
     </style>
 
+    <style name="task_name">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="task_info">
+        <item name="android:textSize">15sp</item>
+    </style>
 
 </resources>
 
