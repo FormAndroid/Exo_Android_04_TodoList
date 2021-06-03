@@ -101,6 +101,7 @@ public class TodoTaskAdapter extends RecyclerView.Adapter<TodoTaskAdapter.ViewHo
         else {
             dateMessage = context.getString(R.string.finish_date_task);
             dateFormatted = task.getFinishDate().format(formatter);
+            holder.getBtnFinish().setEnabled(false);
         }
         holder.getTvDate().setText(String.format(dateMessage, dateFormatted));
 

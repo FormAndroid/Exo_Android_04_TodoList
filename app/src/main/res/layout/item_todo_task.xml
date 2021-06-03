@@ -44,24 +44,25 @@
         style="@style/task_info"
         />
 
-    <TextView
-        android:id="@+id/tv_item_task_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginVertical="5dp"
-        style="@style/task_info"
-        />
 
     <Button
         android:id="@+id/btn_item_task_finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_below="@id/tv_item_task_date"
+        android:layout_alignParentTop="true"
         android:text="@string/btn_finish_task"
         android:textAllCaps="false"
+        />
+
+    <TextView
+        android:id="@+id/tv_item_task_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@id/btn_item_task_finish"
+        android:layout_alignTop="@id/tv_item_task_priority_value"
+        style="@style/task_info"
         />
 
 </RelativeLayout>
